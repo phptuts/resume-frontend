@@ -1,0 +1,11 @@
+
+<div class="row">
+  <h1 class="col-md-12">{{ (homeService.page$ | async).title }}</h1>
+</div>
+<div class="row">
+  <img [src]="(homeService.page$ | async).imageUrl" class="col-md-12 title-image" />
+</div>
+
+<div class="description" [innerHTML]="(homeService.page$ | async).description">
+
+</div>
