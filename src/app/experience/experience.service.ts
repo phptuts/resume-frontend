@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from "rxjs";
+import { Observable } from "rxjs";
 import { ExperiencePage } from "../shared/models";
+import { PageService } from "../shared/page.service";
 
 @Injectable()
-export class ExperienceService {
+export class ExperienceService implements PageService {
 
   private experience: ExperiencePage = {
     pageName: 'experience_page',
@@ -29,8 +30,7 @@ export class ExperienceService {
     ]
   };
 
-  private subject = new BehaviorSubject<ExperiencePage | undefined>(this.experience);
-
-  public page$ = this.subject.asObservable();
-
+  public getPage() {
+      return Observable.of(this.experience);
+  }
 }

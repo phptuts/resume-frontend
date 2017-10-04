@@ -1,24 +1,27 @@
-<div class="row">
-    <h1 class="col-md-12">{{ (experienceService.page$ | async).title }}</h1>
-</div>
-
-<div class="row">
-    <div class="col-md-12" [innerHTML]="(experienceService.page$ | async).description">
-
+<div *ngIf="pageService.getPage() | async as page else loading">
+    <div class="row">
+        <h1 class="col-md-12">{{ page.title }}</h1>
     </div>
-</div>
 
-<div class="row">
-    <h2 class="col-md-12 job-title">Job History</h2>
-</div>
-<div class="row" *ngFor="let job of (experienceService.page$ | async).jobs">
-    <div class="col-md-12">
-        <h3>
-            <span class="position">{{ job.position }}</span>
-            <span class="date">{{ job.startDate }} - {{ job.endDate }}</span>
-        </h3>
-        <div class="description" [innerHTML]="job.description" >
+    <div class="row">
+        <div class="col-md-12" [innerHTML]="page.description">
 
         </div>
     </div>
+
+    <div class="row">
+        <h2 class="col-md-12 job-title">Job History</h2>
+    </div>
+    <div class="row" *ngFor="let job of page.jobs">
+        <div class="col-md-12">
+            <h3>
+                <span class="position">{{ job.position }}</span>
+                <span class="date">{{ job.startDate }} - {{ job.endDate }}</span>
+            </h3>
+            <div class="description" [innerHTML]="job.description">
+
+            </div>
+        </div>
+    </div>
 </div>
+<ng-template #loading><p>Loading</p></ng-template>

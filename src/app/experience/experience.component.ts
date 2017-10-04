@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ExperienceService } from "./experience.service";
+import { PageService } from "../shared/page.service";
 
 
 @Component( {
@@ -8,8 +9,6 @@ import { ExperienceService } from "./experience.service";
 	styleUrls: [ './experience.component.css' ],
 	providers: [ ExperienceService ]
 } )
-export class ExperienceComponent {
-
-	constructor(private experienceService: ExperienceService ) { }
-
+export class ExperienceComponent  {
+	constructor(@Inject(ExperienceService) public pageService: PageService) { }
 }
