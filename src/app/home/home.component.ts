@@ -1,6 +1,5 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { HomeService } from "./home.service";
-import { PageService } from "../shared/page.service";
 
 @Component( {
 	selector: 'app-home',
@@ -9,5 +8,7 @@ import { PageService } from "../shared/page.service";
 	providers: [ HomeService ]
 } )
 export class HomeComponent {
-	constructor(@Inject(HomeService) public pageService: PageService) { }
+	constructor(public pageService: HomeService) {}
+
+
 }

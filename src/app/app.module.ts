@@ -10,16 +10,11 @@ import { ExperienceComponent } from './experience/experience.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ProjectComponent } from './projects/project/project.component';
 
 
 const appRoutes: Routes = [
 	{ path: 'experience', component: ExperienceComponent },
-	{
-		path: 'projects', component: ProjectsComponent, children: [
-		{ path: ':id', component: ProjectComponent }
-	]
-	},
+	{ path: 'projects', component: ProjectsComponent },
 	{ path: 'contact', component: ContactComponent },
 	{ path: '', component: HomeComponent },
 	{ path: '**', component: NotFoundComponent }
@@ -34,12 +29,11 @@ const appRoutes: Routes = [
 		ProjectsComponent,
 		ContactComponent,
 		NotFoundComponent,
-		ProjectComponent
 	],
 	imports: [
 		BrowserModule,
 		RouterModule.forRoot(appRoutes),
-		NgbModule.forRoot()
+		NgbModule.forRoot(),
 	],
 	providers: [
 	],

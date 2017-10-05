@@ -1,11 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Noah's Resume</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button (click)="toggle()"  class="navbar-toggler"  type="button" data-toggle="collapse"
+          data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <div class="navbar-collapse" id="navbarSupportedContent" [ngClass]="{ 'collapse': isIn }">
+    <ul class="navbar-nav mr-auto" >
       <li class="nav-item" routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact: true}">
         <a class="nav-link" >Home </a>
       </li>

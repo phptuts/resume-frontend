@@ -1,1 +1,38 @@
 
+<div *ngIf="pageService.getPage() | async as page else loading">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 >{{ page.title }}</h1>
+        </div>
+    </div>
+
+
+    <div class="row" >
+        <div class="col-md-12">
+            <div  [innerHTML]="page.description"></div>
+        </div>
+    </div>
+
+    <div *ngFor="let project of page.projects" class="project" >
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4>{{ project.name }}</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 col-xs-12">
+                <img class [src]="project.imageUrl" class="title-image"/>
+            </div>
+            <div class="description col-md-8 col-xs-12" >
+                <div [innerHTML]="project.description"></div>
+                <h4><a href="{{ project.codeUrl }}">Code </a> / <a href="{{ project.website }}">Website</a> </h4>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<ng-template #loading><p>Loading</p></ng-template>
