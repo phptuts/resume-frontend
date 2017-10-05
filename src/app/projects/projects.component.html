@@ -17,7 +17,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <h4>{{ project.name }}</h4>
+                <h4><a href="{{ project.website }}">{{ project.name }}</a></h4>
             </div>
         </div>
 
@@ -27,7 +27,7 @@
             </div>
             <div class="description col-md-8 col-xs-12" >
                 <div [innerHTML]="project.description"></div>
-                <h4><a href="{{ project.codeUrl }}">Code </a> / <a href="{{ project.website }}">Website</a> </h4>
+                <h4><a href="{{ project.codeUrl }}">Code </a></h4>
             </div>
         </div>
 

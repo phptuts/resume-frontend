@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavComponent  {
 
-  public isIn: boolean = true;
+  public collapse = true;
 
   public toggle() {
-    this.isIn = !this.isIn;
+    this.collapse = !this.collapse;
   }
 
 }
